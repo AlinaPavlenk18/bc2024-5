@@ -27,14 +27,12 @@ app.get('/notes/:name', (req, res) => {
   res.send(note);
 });
 
-app.put('/notes/:name', upload.none(), (req, res) => {
-  const noteName = req.params.name;
-  const noteContent = req.body.note;
-  const notePath = path.join(cachePath, noteName);
+app.put('/notes/:name', express.text(), (req, res) => {
+  const notePath = path.join(cachePath, req.params.name);
   if (!fs.existsSync(notePath)) {
     return res.status(404).send('Note not found');
   }
-  fs.writeFileSync(notePath, noteContent);
+  fs.writeFileSync(notePath, req.body);
   res.send('Note updated');
 });
 
