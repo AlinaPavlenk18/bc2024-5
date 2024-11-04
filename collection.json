@@ -44,14 +44,8 @@
 				"method": "PUT",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "note",
-							"value": "Зробити лаб. 5 з вебу та доробити 10 лабу з баз даних",
-							"type": "text"
-						}
-					]
+					"mode": "raw",
+					"raw": "Зробити 5 лабу з вебу"
 				},
 				"url": {
 					"raw": "http://localhost:8008/notes/Навчання",
